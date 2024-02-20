@@ -58,7 +58,7 @@ def fees_report(infile, outfile):
             late_fees[row['patron_id']] += late_fee
     with open(outfile,'w',newline='') as file:
         writer = DictWriter(file,fieldnames=['patron_id','late_fees'])
-        write.writeheader()
+        writer.writeheader()
         for patron_id,fee in late_fees.items():
             writer.writerow({'patron_id':patron_id,"late_fees":f"{fee:.2f}"})
                             
